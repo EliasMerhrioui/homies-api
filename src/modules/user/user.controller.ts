@@ -1,9 +1,8 @@
 import { FastifyReply, FastifyRequest } from "fastify";
-import { CreateUserInput } from "./user.schema";
+import { CreateUserInput, LoginInput } from "./user.schema";
 import { createUser } from "./user.service";
 
-export async function registerUserHandler(
-    request: FastifyRequest<{
+export async function registerUserHandler(request: FastifyRequest<{
         Body: CreateUserInput;
     }>, 
     reply: FastifyReply
@@ -18,6 +17,17 @@ export async function registerUserHandler(
         return reply.code(500).send(e);
 
     }
+}
 
+export async function loginHandler(request: FastifyRequest<{
+    Body: LoginInput,
+}>, 
+reply: FastifyReply) {
+    const body = request.body
 
+    //trouver l'email de l'utilisateur 
+
+    // vérifier son mdp hasher 50
+
+    //Générer un accessToken 40 
 }
