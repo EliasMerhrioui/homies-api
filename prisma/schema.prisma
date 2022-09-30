@@ -27,8 +27,17 @@ model Article {
   title String @db.VarChar(255)
   content String?
   picture String?
-  categorie String
+  categorie String?
   owner User @relation(fields: [ownerId], references: [id])
   ownerId Int
+}
+
+model Partenaire {
+  id Int @id @default(autoincrement())
+  createAt DateTime @default(now())
+  updateAt DateTime @default(now())
+  title String @db.VarChar(255)
+  content String?
+  picture String?
 }
 
